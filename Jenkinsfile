@@ -13,6 +13,7 @@ pipeline {
       steps {
         dir('APP') {
           git branch: 'main', url: 'https://github.com/raghudevopsb70/${COMPONENT}.git'
+          sh 'rm -rf APP/.git .git'
         }
       }
     }
