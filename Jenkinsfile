@@ -13,14 +13,16 @@ pipeline {
       steps {
         dir('APP') {
           git branch: 'main', url: 'https://github.com/raghudevopsb70/${COMPONENT}.git'
-          sh 'rm -rf APP/.git .git'
+        }
+        dir('HELM') {
+          git branch: 'main', url: 'https://github.com/raghudevopsb70/roboshop-helm-chart'
         }
       }
     }
 
     stage('Helm Deploy') {
       steps {
-        sh 'helm upgrade -i ${COMPONENT} . -f APP/values.yaml --set-string image.tag="${APP_VERSION}"'
+        sh 'helm upgrade -i ${COMPONENT} ./HELM -f APP/values.yaml --set-string image.tag="${APP_VERSION}"'
       }
 
     }
