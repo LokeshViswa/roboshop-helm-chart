@@ -31,6 +31,9 @@ spec:
         - name: parameters-pull
           image: 633788536644.dkr.ecr.us-east-1.amazonaws.com/parameters-pull
           imagePullPolicy: Always
+          volumeMounts:
+          - mountPath: /parameter-store
+            name: parameter-store
           env:
             - name: ENV
               value: {{ .Values.ENV }}
