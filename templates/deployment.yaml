@@ -37,9 +37,9 @@ spec:
             name: parameter-store
           env:
             - name: ENV
-              value: {{ .Values.ENV }}
+              value: "{{ .Values.ENV }}"
             - name: COMPONENT
-              value: {{ .Values.COMPONENT }}
+              value: "{{ .Values.COMPONENT }}"
       {{- end }}
       volumes:
         - name: parameter-store
