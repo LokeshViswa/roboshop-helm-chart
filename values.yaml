@@ -83,3 +83,9 @@ affinity: {}
 
 schema:
   enabled: false
+
+initContainer:
+  enabled: true
+
+
+
