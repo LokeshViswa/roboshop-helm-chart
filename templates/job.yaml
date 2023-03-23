@@ -5,10 +5,8 @@ metadata:
   name: {{ include "roboshop.fullname" . }}
   labels:
     {{- include "roboshop.labels" . | nindent 4 }}
-  {{- with .Values.serviceAccount.annotations }}
   annotations:
     "helm.sh/hook": pre-install
-  {{- toYaml . | nindent 4 }}
 spec:
   template:
     spec:
